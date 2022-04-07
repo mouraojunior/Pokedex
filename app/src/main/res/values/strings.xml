@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Pokedex</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="img_description_pokemon">Pokemon image</string>
+    <string name="img_description_pokeball">Pokeball image</string>
+    <string name="imgdescr_type_one_icon">Type 1 Icon</string>
+    <string name="imgdescr_type_two_icon">Type 2 Icon</string>
 </resources>

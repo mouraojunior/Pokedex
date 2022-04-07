@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_margin="8dp"
+    android:clickable="true"
+    android:clipToPadding="false"
+    android:focusable="true"
+    app:cardCornerRadius="16dp"
+    tools:backgroundTint="@color/background_type_grass">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvPokemonId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/SFProDisplayBold"
+            android:includeFontPadding="false"
+            android:textColor="@color/pokemon_number"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="#001" />
+
+        <TextView
+            android:id="@+id/tvPokemonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/SFProDisplayBold"
+            android:includeFontPadding="false"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            app:layout_constraintStart_toStartOf="@+id/tvPokemonId"
+            app:layout_constraintTop_toBottomOf="@+id/tvPokemonId"
+            tools:text="Bulbasaur" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPokemonType1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="@color/type_grass"
+            android:elevation="8dp"
+            app:layout_constraintStart_toStartOf="@+id/tvPokemonName"
+            app:layout_constraintTop_toBottomOf="@+id/tvPokemonName">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="4dp"
+                    app:tint="@color/white"
+                    tools:src="@drawable/ic_type_grass"
+                    android:contentDescription="@string/imgdescr_type_one_icon" />
+
+                <TextView
+                    android:id="@+id/tvPokemonType1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/SFProDisplayRegular"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    tools:text="Grass" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPokemonType2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:backgroundTint="@color/type_poison"
+            android:elevation="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cvPokemonType1"
+            app:layout_constraintStart_toEndOf="@+id/cvPokemonType1"
+            app:layout_constraintTop_toTopOf="@+id/cvPokemonType1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="4dp"
+                    app:tint="@color/white"
+                    tools:src="@drawable/ic_type_poison"
+                    android:contentDescription="@string/imgdescr_type_two_icon" />
+
+                <TextView
+                    android:id="@+id/tvPokemonType2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/SFProDisplayRegular"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    tools:text="Grass" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imgPokemonBackground"
+            android:layout_width="140dp"
+            android:layout_height="160dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="-25dp"
+            android:layout_marginEnd="-25dp"
+            android:alpha="0.25"
+            android:contentDescription="@string/img_description_pokeball"
+            android:src="@drawable/pokeball"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/img_description_pokemon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imgPokemonBackground"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/poke001" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
