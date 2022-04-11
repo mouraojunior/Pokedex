@@ -2,9 +2,10 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cvRoot"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:layout_margin="8dp"
+    android:layout_margin="4dp"
     android:clickable="true"
     android:clipToPadding="false"
     android:focusable="true"
@@ -21,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:fontFamily="@font/SFProDisplayBold"
+            android:fontFamily="@font/sf_pro_display_bold"
             android:includeFontPadding="false"
             android:textColor="@color/pokemon_number"
             android:textSize="12sp"
@@ -34,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:fontFamily="@font/SFProDisplayBold"
+            android:fontFamily="@font/sf_pro_display_bold"
             android:includeFontPadding="false"
             android:textColor="@color/white"
             android:textSize="26sp"
@@ -47,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:backgroundTint="@color/type_grass"
+            tools:backgroundTint="@color/type_grass"
             android:elevation="8dp"
             app:layout_constraintStart_toStartOf="@+id/tvPokemonName"
             app:layout_constraintTop_toBottomOf="@+id/tvPokemonName">
@@ -58,6 +59,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/imgPokemonType1"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
                     android:layout_gravity="center"
@@ -70,7 +72,7 @@
                     android:id="@+id/tvPokemonType1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/SFProDisplayRegular"
+                    android:fontFamily="@font/sf_pro_display"
                     android:gravity="center_horizontal|center_vertical"
                     android:paddingStart="4dp"
                     android:paddingEnd="4dp"
@@ -85,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:backgroundTint="@color/type_poison"
+            tools:backgroundTint="@color/type_poison"
             android:elevation="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/cvPokemonType1"
             app:layout_constraintStart_toEndOf="@+id/cvPokemonType1"
@@ -97,6 +99,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/imgPokemonType2"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
                     android:layout_gravity="center"
@@ -109,7 +112,7 @@
                     android:id="@+id/tvPokemonType2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/SFProDisplayRegular"
+                    android:fontFamily="@font/sf_pro_display"
                     android:gravity="center_horizontal|center_vertical"
                     android:paddingStart="4dp"
                     android:paddingEnd="4dp"
@@ -135,7 +138,7 @@
             app:tint="@color/white" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imgPokemon"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:adjustViewBounds="true"

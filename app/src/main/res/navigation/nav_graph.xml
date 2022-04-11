@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/pokemonListFragment"
         android:name="juniormourao.pokedex.presentation.pokemon_list.PokemonListFragment"
-        android:label="fragment_pokemon_list"
+        android:label="Pokédex"
         tools:layout="@layout/fragment_pokemon_list" />
 </navigation>
