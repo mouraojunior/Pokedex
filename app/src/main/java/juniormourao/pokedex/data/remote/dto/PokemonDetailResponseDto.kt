@@ -2,6 +2,8 @@ package juniormourao.pokedex.data.remote.dto
 
 
 import com.google.gson.annotations.SerializedName
+import juniormourao.pokedex.data.cache.entity.PokemonEntity
+import juniormourao.pokedex.domain.model.Pokemon
 
 data class PokemonDetailResponseDto(
     @SerializedName("base_experience")
@@ -21,5 +23,27 @@ data class PokemonDetailResponseDto(
     @SerializedName("types")
     val types: List<TypesDto>,
     @SerializedName("weight")
-    val weight: Int
-)
+    val weight: Int,
+) {
+    fun toPokemon() = Pokemon(
+        baseExperience = baseExperience,
+        height = height,
+        id = id,
+        name = name,
+        order = order,
+        image = sprites.other.officialArtwork.frontDefault,
+        stats = stats.map { it.toStats() },
+        types = types.map { it.toTypes() },
+        weight = weight
+    )
+
+    fun toPokemonEntity() = PokemonEntity(
+        baseExperience = baseExperience,
+        height = height,
+        id = id,
+        name = name,
+        order = order,
+        image = sprites.other.officialArtwork.frontDefault,
+        weight = weight
+    )
+}

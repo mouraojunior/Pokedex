@@ -21,5 +21,5 @@ data class SpritesDto(
     @SerializedName("front_shiny_female")
     val frontShinyFemale: String,
     @SerializedName("other")
-    val other: ImageDto
+    val other: ImageDto,
 )

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.pokemon_details.PokemonDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clBase"
+        tools:background="@color/background_type_grass"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgPokeball"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_marginEnd="-80dp"
+            android:layout_marginBottom="-70dp"
+            android:src="@drawable/pokeball"
+            app:layout_constraintBottom_toBottomOf="@+id/imgPokemon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imgPokemon"
+            app:layout_constraintTop_toTopOf="@+id/imgPokemon"
+            app:tint="@color/white_background" />
+
+        <ImageView
+            android:id="@+id/imgPokemon"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:elevation="8dp"
+            android:scaleType="fitCenter"
+            tools:src="@drawable/poke001"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvPokemonType1" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="-32dp"
+            android:layout_marginBottom="-24dp"
+            app:cardCornerRadius="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgPokemon">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tblPokemonDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="12dp"
+                    tools:tabIndicatorColor="@color/type_grass"
+                    tools:tabSelectedTextColor="@color/type_grass">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="ABOUT" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="STATS" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="EVOLUTION" />
+
+                </com.google.android.material.tabs.TabLayout>
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vpgrPokemonDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvPokemonId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:includeFontPadding="false"
+            android:textColor="@color/pokemon_number"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/btnBackButton"
+            app:layout_constraintTop_toBottomOf="@+id/btnBackButton"
+            tools:text="#001" />
+
+        <TextView
+            android:id="@+id/tvPokemonName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:includeFontPadding="false"
+            tools:text="Bulbasaur"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvPokemonId"
+            app:layout_constraintTop_toBottomOf="@+id/tvPokemonId" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPokemonType1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/tvPokemonName"
+            app:layout_constraintTop_toBottomOf="@+id/tvPokemonName"
+            tools:backgroundTint="@color/type_grass">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imgPokemonType1"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="4dp"
+                    android:contentDescription="@string/imgdescr_type_one_icon"
+                    app:tint="@color/white"
+                    tools:src="@drawable/ic_type_grass" />
+
+                <TextView
+                    android:id="@+id/tvPokemonType1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_display"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    tools:text="Grass" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPokemonType2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:elevation="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cvPokemonType1"
+            app:layout_constraintStart_toEndOf="@+id/cvPokemonType1"
+            app:layout_constraintTop_toTopOf="@+id/cvPokemonType1"
+            tools:backgroundTint="@color/type_poison">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imgPokemonType2"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="4dp"
+                    android:contentDescription="@string/imgdescr_type_two_icon"
+                    app:tint="@color/white"
+                    tools:src="@drawable/ic_type_poison" />
+
+                <TextView
+                    android:id="@+id/tvPokemonType2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_display"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    tools:text="Grass" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageButton
+            android:id="@+id/btnBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:padding="16dp"
+            android:background="@drawable/ic_back_arrow_white_28"
+            android:backgroundTint="@color/white"
+            android:contentDescription="@string/base_back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

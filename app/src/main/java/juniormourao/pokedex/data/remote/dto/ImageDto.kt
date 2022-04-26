@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class ImageDto(
     @SerializedName("official-artwork")
-    val officialArtwork: OfficialArtworkDto
+    val officialArtwork: OfficialArtworkDto,
 )

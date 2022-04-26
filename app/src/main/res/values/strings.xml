@@ -6,4 +6,8 @@
     <string name="img_description_pokeball">Pokeball image</string>
     <string name="imgdescr_type_one_icon">Type 1 Icon</string>
     <string name="imgdescr_type_two_icon">Type 2 Icon</string>
+    <string name="base_back_button">Base back button</string>
+    <string name="tab_about">About</string>
+    <string name="tab_evolution">Evolution</string>
+    <string name="tab_stats">Stats</string>
 </resources>

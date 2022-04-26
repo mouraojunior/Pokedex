@@ -9,5 +9,19 @@
         android:id="@+id/pokemonListFragment"
         android:name="juniormourao.pokedex.presentation.pokemon_list.PokemonListFragment"
         android:label="Pokédex"
-        tools:layout="@layout/fragment_pokemon_list" />
+        tools:layout="@layout/fragment_pokemon_list">
+        <action
+            android:id="@+id/action_pokemonListFragment_to_pokemonDetailFragment"
+            app:destination="@id/pokemonDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pokemonDetailFragment"
+        android:label="Pokemon"
+        android:name="juniormourao.pokedex.presentation.pokemon_details.PokemonDetailFragment"
+        tools:layout="@layout/fragment_pokemon_detail">
+        <argument
+            android:name="pokemon"
+            app:argType="juniormourao.pokedex.domain.model.Pokemon"
+            app:nullable="false" />
+    </fragment>
 </navigation>
