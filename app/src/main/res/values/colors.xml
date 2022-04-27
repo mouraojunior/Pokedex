@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="white_background">#8DFFFFFF</color>
     <color name="unselected_tab">#666666</color>
+    <color name="black_text">#17171B</color>
 
 
     <color name="pokemon_number">#9917171B</color>
