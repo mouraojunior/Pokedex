@@ -1,4 +1,4 @@
-<h1 align="center">Rick And Morty</h1>
+<h1 align="center">Pokédex</h1>
 <p align="center">
 An Android APP using PokeApi's API :link: (https://pokeapi.co/). This project implements MVVM appying Single Source of Truth (SSOT) and some of the best practices in Android Development.
 </p>
