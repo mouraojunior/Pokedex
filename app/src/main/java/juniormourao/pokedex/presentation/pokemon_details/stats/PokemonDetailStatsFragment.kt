@@ -11,7 +11,7 @@ import juniormourao.pokedex.domain.model.Pokemon
 import juniormourao.pokedex.util.PokemonUtil
 import timber.log.Timber
 
-class PokemonDetailStatsFragment(val pokemonDetails: Pokemon) : Fragment(R.layout.fragment_pokemon_detail_stats) {
+class PokemonDetailStatsFragment(private val pokemonDetails: Pokemon) : Fragment(R.layout.fragment_pokemon_detail_stats) {
     private lateinit var mainBinding: FragmentPokemonDetailStatsBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -17,14 +17,14 @@ class PokemonDetailFragmentsAdapter(
     FragmentStateAdapter(fragmentManager, lifecycle) {
 
     override fun getItemCount(): Int {
-        return 3
+        return 2
     }
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> PokemonDetailAboutFragment(pokemonDetails)
             1 -> PokemonDetailStatsFragment(pokemonDetails)
-            2 -> PokemonDetailEvolutionFragment(pokemonDetails)
+//            2 -> PokemonDetailEvolutionFragment(pokemonDetails)
             else -> Fragment()
         }
     }

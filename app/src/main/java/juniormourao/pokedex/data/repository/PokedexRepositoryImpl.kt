@@ -3,7 +3,9 @@ package juniormourao.pokedex.data.repository
 import juniormourao.pokedex.data.cache.PokedexDao
 import juniormourao.pokedex.data.remote.PokedexApi
 import juniormourao.pokedex.data.remote.dto.PokemonDetailResponseDto
+import juniormourao.pokedex.data.remote.dto.PokemonSpecieResponseDto
 import juniormourao.pokedex.domain.model.Pokemon
+import juniormourao.pokedex.domain.model.PokemonSpecie
 import juniormourao.pokedex.domain.repository.PokedexRepository
 import juniormourao.pokedex.util.Resource
 import kotlinx.coroutines.async
@@ -44,6 +46,22 @@ class PokedexRepositoryImpl @Inject constructor(
                     .map { it.toPokemon() }))
             } catch (e: Exception) {
                 emit(Resource.Error("An unexpected error has occurred.", emptyList()))
+            }
+        }
+
+    override suspend fun getPokemonSpecie(fetchFromRemote: Boolean, pokemonId: Int): Flow<Resource<PokemonSpecie>> =
+        flow {
+            emit(Resource.Loading(true))
+            val pokemonSpecie: PokemonSpecieResponseDto
+            try {
+                if (fetchFromRemote) {
+                    pokemonSpecie = pokedexApi.getPokemonSpecie(pokemonId = pokemonId)
+                    pokedexDao.insertPokemonSpecie(
+                        specie = pokemonSpecie.toPokemonSpecieEntity(pokemonId))
+                }
+                emit(Resource.Success(pokedexDao.getPokemonSpecie(pokemonId = pokemonId).toPokemonSpecie(pokemonId = pokemonId)))
+            } catch (e: Exception) {
+                emit(Resource.Error("An unexpected error has occurred."))
             }
         }
 }

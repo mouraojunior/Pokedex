@@ -1,14 +1,302 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="36dp"
     tools:context=".presentation.pokemon_details.about.PokemonDetailAboutFragment">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="ABOUT" />
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            android:gravity="center"
+            android:fontFamily="@font/sf_pro_display"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            tools:text="When the bulb on its back grows large, it appears to lose the ability to stand on its hind legs."
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:gravity="center"
+            android:text="Weight"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/tvHeight"
+            app:layout_constraintStart_toStartOf="@+id/tvHeight"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+        <TextView
+            android:id="@+id/tvWeightValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display"
+            android:gravity="center"
+            tools:text="No"
+            android:textColor="@color/tv_subtitle_color"
+            app:layout_constraintBottom_toBottomOf="@+id/tvWeight"
+            app:layout_constraintEnd_toEndOf="@+id/tvHeightValue"
+            app:layout_constraintStart_toStartOf="@+id/tvHeightValue"
+            app:layout_constraintTop_toTopOf="@+id/tvWeight" />
+
+        <TextView
+            android:id="@+id/tvHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:gravity="center"
+            android:text="Height"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/tvGeneration"
+            app:layout_constraintStart_toStartOf="@+id/tvGeneration"
+            app:layout_constraintTop_toBottomOf="@+id/tvWeight" />
+
+        <TextView
+            android:id="@+id/tvHeightValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display"
+            android:gravity="center"
+            tools:text="No"
+            android:textColor="@color/tv_subtitle_color"
+            app:layout_constraintBottom_toBottomOf="@+id/tvHeight"
+            app:layout_constraintEnd_toEndOf="@+id/tvGenerationValue"
+            app:layout_constraintStart_toStartOf="@+id/tvGenerationValue"
+            app:layout_constraintTop_toTopOf="@+id/tvHeight" />
+
+        <TextView
+            android:id="@+id/tvGeneration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:gravity="center"
+            android:text="Generation"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/tvHabitat"
+            app:layout_constraintStart_toStartOf="@+id/tvHabitat"
+            app:layout_constraintTop_toBottomOf="@+id/tvHeight" />
+
+        <TextView
+            android:id="@+id/tvGenerationValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display"
+            android:gravity="center"
+            tools:text="Generation I"
+            android:textColor="@color/tv_subtitle_color"
+            app:layout_constraintBottom_toBottomOf="@+id/tvGeneration"
+            app:layout_constraintEnd_toEndOf="@+id/tvHabitatValue"
+            app:layout_constraintStart_toStartOf="@+id/tvHabitatValue"
+            app:layout_constraintTop_toTopOf="@+id/tvGeneration" />
+
+        <TextView
+            android:id="@+id/tvHabitat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:gravity="center"
+            android:text="Habitat"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/tvIsBaby"
+            app:layout_constraintStart_toStartOf="@+id/tvIsBaby"
+            app:layout_constraintTop_toBottomOf="@+id/tvGeneration" />
+
+        <TextView
+            android:id="@+id/tvHabitatValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display"
+            android:gravity="center"
+            tools:text="Grassland"
+            android:textColor="@color/tv_subtitle_color"
+            app:layout_constraintBottom_toBottomOf="@+id/tvHabitat"
+            app:layout_constraintEnd_toEndOf="@+id/tvIsBabyValue"
+            app:layout_constraintStart_toStartOf="@+id/tvIsBabyValue"
+            app:layout_constraintTop_toTopOf="@+id/tvHabitat" />
+
+        <TextView
+            android:id="@+id/tvIsBaby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:gravity="center"
+            android:text="Is Baby"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/tvIsLegendary"
+            app:layout_constraintStart_toStartOf="@+id/tvIsLegendary"
+            app:layout_constraintTop_toBottomOf="@+id/tvHabitat" />
+
+        <TextView
+            android:id="@+id/tvIsBabyValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display"
+            android:gravity="center"
+            tools:text="No"
+            android:textColor="@color/tv_subtitle_color"
+            app:layout_constraintBottom_toBottomOf="@+id/tvIsBaby"
+            app:layout_constraintEnd_toEndOf="@+id/tvIsLegendaryValue"
+            app:layout_constraintStart_toStartOf="@+id/tvIsLegendaryValue"
+            app:layout_constraintTop_toTopOf="@+id/tvIsBaby" />
+
+        <TextView
+            android:id="@+id/tvIsLegendary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:gravity="center"
+            android:text="Is Legendary"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/tvIsMythical"
+            app:layout_constraintStart_toStartOf="@+id/tvIsMythical"
+            app:layout_constraintTop_toBottomOf="@id/tvIsBaby" />
+
+        <TextView
+            android:id="@+id/tvIsLegendaryValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display"
+            android:gravity="center"
+            tools:text="No"
+            android:textColor="@color/tv_subtitle_color"
+            app:layout_constraintBottom_toBottomOf="@+id/tvIsLegendary"
+            app:layout_constraintEnd_toEndOf="@+id/tvIsMythicalValue"
+            app:layout_constraintStart_toStartOf="@+id/tvIsMythicalValue"
+            app:layout_constraintTop_toTopOf="@+id/tvIsLegendary" />
+
+        <TextView
+            android:id="@+id/tvIsMythical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:gravity="center"
+            android:text="Is Mythical"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/tvCaptureRate"
+            app:layout_constraintStart_toStartOf="@+id/tvCaptureRate"
+            app:layout_constraintTop_toBottomOf="@id/tvIsLegendary" />
+
+        <TextView
+            android:id="@+id/tvIsMythicalValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display"
+            android:gravity="center"
+            tools:text="No"
+            android:textColor="@color/tv_subtitle_color"
+            app:layout_constraintBottom_toBottomOf="@+id/tvIsMythical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvCaptureRateValue"
+            app:layout_constraintTop_toTopOf="@+id/tvIsMythical" />
+
+        <TextView
+            android:id="@+id/tvCaptureRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:gravity="center"
+            android:text="Capture Rate"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/tvBaseHappiness"
+            app:layout_constraintStart_toStartOf="@+id/tvBaseHappiness"
+            app:layout_constraintTop_toBottomOf="@id/tvIsMythical" />
+
+        <TextView
+            android:id="@+id/tvCaptureRateValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display"
+            android:gravity="center"
+            tools:text="44"
+            android:textColor="@color/tv_subtitle_color"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCaptureRate"
+            app:layout_constraintEnd_toEndOf="@+id/tvBaseHappinessValue"
+            app:layout_constraintStart_toStartOf="@+id/tvBaseHappinessValue"
+            app:layout_constraintTop_toTopOf="@+id/tvCaptureRate" />
+
+        <ProgressBar
+            android:id="@+id/pbCaptureRate"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="45"
+            android:progressBackgroundTint="@color/type_water"
+            android:progressTint="@color/type_water"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCaptureRateValue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvCaptureRateValue"
+            app:layout_constraintTop_toTopOf="@+id/tvCaptureRateValue" />
+
+        <TextView
+            android:id="@+id/tvBaseHappiness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:gravity="center"
+            android:text="Base Happiness"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCaptureRate" />
+
+        <TextView
+            android:id="@+id/tvBaseHappinessValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/sf_pro_display"
+            android:gravity="center"
+            tools:text="44"
+            android:textColor="@color/tv_subtitle_color"
+            app:layout_constraintBottom_toBottomOf="@+id/tvBaseHappiness"
+            app:layout_constraintStart_toEndOf="@id/tvBaseHappiness"
+            app:layout_constraintTop_toTopOf="@+id/tvBaseHappiness" />
+
+        <ProgressBar
+            android:id="@+id/pbBaseHappiness"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="45"
+            android:progressBackgroundTint="@color/type_water"
+            android:progressTint="@color/type_water"
+            app:layout_constraintBottom_toBottomOf="@+id/tvBaseHappinessValue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvBaseHappinessValue"
+            app:layout_constraintTop_toTopOf="@+id/tvBaseHappinessValue" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
