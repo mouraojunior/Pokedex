@@ -3,8 +3,13 @@ package juniormourao.pokedex.util
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.view.View
+import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.text.HtmlCompat
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
+import com.google.android.material.snackbar.Snackbar
 import juniormourao.pokedex.R
 
 object PokemonUtil {
@@ -94,6 +99,29 @@ object PokemonUtil {
             Triple(R.color.background_type_normal,
                 R.color.type_normal,
                 R.drawable.ic_type_normal)
+    }
+
+    fun View.createSnackBar(
+        message: String,
+        isError: Boolean = true,
+        action: (Snackbar.() -> Unit)? = null,
+    ) {
+        val color: Int = if (isError) R.color.red_error
+        else R.color.green_success
+
+        val snackbar = Snackbar.make(
+            this,
+            HtmlCompat.fromHtml(message, HtmlCompat.FROM_HTML_MODE_LEGACY),
+            Snackbar.LENGTH_LONG
+        )
+            .setAction(
+                ("FECHAR")
+            ) { }
+            .setActionTextColor(ContextCompat.getColor(this.context, color))
+        val view = snackbar.view
+        val textView = view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
+        textView.maxLines = 2
+        snackbar.show()
     }
 
     fun isNetworkAvailable(context: Context) =

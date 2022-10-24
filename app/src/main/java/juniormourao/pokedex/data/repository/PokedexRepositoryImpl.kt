@@ -11,7 +11,6 @@ import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import timber.log.Timber
 import javax.inject.Inject
 
 class PokedexRepositoryImpl @Inject constructor(
@@ -21,11 +20,8 @@ class PokedexRepositoryImpl @Inject constructor(
     override suspend fun getPokemons(fetchFromRemote: Boolean): Flow<Resource<List<Pokemon>>> =
         flow {
             emit(Resource.Loading(true))
-            if (fetchFromRemote) Timber.e("INTERNET CONNECTION!") else Timber.e("NO CONNECTION!")
             val pokemonDetails: List<PokemonDetailResponseDto>
             try {
-                emit(Resource.Success(pokedexDao.getPokemonWithStatsAndTypes()
-                    .map { it.toPokemon() }))
                 if (fetchFromRemote) {
                     coroutineScope {
                         pokemonDetails = pokedexApi.getPokemons().results.map { pokemon ->
@@ -43,9 +39,9 @@ class PokedexRepositoryImpl @Inject constructor(
                             })
                         }
                     }
-                    Timber.e("pokeDAO: ${pokedexDao.getPokemonWithStatsAndTypes()}")
-                    emit(Resource.Success(pokemonDetails.map { it.toPokemon() }))
                 }
+                emit(Resource.Success(pokedexDao.getPokemonWithStatsAndTypes()
+                    .map { it.toPokemon() }))
             } catch (e: Exception) {
                 emit(Resource.Error("An unexpected error has occurred.", emptyList()))
             }

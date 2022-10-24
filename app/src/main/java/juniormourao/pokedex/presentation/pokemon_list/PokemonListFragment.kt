@@ -2,6 +2,7 @@ package juniormourao.pokedex.presentation.pokemon_list
 
 import android.os.Bundle
 import android.view.View
+import android.view.View.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -14,11 +15,11 @@ import juniormourao.pokedex.R
 import juniormourao.pokedex.databinding.FragmentPokemonListBinding
 import juniormourao.pokedex.presentation.adapter.PokemonListAdapter
 import juniormourao.pokedex.util.PokemonUtil
+import juniormourao.pokedex.util.PokemonUtil.createSnackBar
 import juniormourao.pokedex.util.PokemonUtil.safeNavigate
 import juniormourao.pokedex.util.Resource
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 @AndroidEntryPoint
 class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
@@ -43,9 +44,30 @@ class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 pokemonListViewModel.pokemons.collectLatest { pokemonState ->
                     when (pokemonState) {
-                        is Resource.Error -> Timber.e(pokemonState.message)
-                        is Resource.Loading -> Timber.e("Loading Pokemons")
-                        is Resource.Success -> pokemonListAdapter.submitList(pokemonState.data)
+                        is Resource.Error -> {
+                            pokemonListBinding.apply {
+                                pokemonListBinding.apply {
+                                    rvPokemon.visibility = VISIBLE
+                                    pbLoading.visibility = GONE
+                                }
+                                root.createSnackBar(
+                                    message = pokemonState.message ?: ""
+                                )
+                            }
+                        }
+                        is Resource.Loading -> {
+                            pokemonListBinding.apply {
+                                rvPokemon.visibility = INVISIBLE
+                                pbLoading.visibility = VISIBLE
+                            }
+                        }
+                        is Resource.Success -> {
+                            pokemonListBinding.apply {
+                                rvPokemon.visibility = VISIBLE
+                                pbLoading.visibility = GONE
+                            }
+                            pokemonListAdapter.submitList(pokemonState.data)
+                        }
                     }
                 }
             }
