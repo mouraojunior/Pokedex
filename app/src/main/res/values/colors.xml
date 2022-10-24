@@ -12,6 +12,7 @@
     <color name="black_text">#17171B</color>
     <color name="red_error">#E32B2B</color>
     <color name="green_success">#4BB543</color>
+    <color name="tv_subtitle_color">#888888</color>
 
 
     <color name="pokemon_number">#9917171B</color>

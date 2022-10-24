@@ -5,8 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import juniormourao.pokedex.R
 import juniormourao.pokedex.databinding.FragmentPokemonDetailEvolutionBinding
+import juniormourao.pokedex.domain.model.Pokemon
 
-class PokemonDetailEvolutionFragment : Fragment(R.layout.fragment_pokemon_detail_evolution) {
+class PokemonDetailEvolutionFragment(pokemonDetails: Pokemon) : Fragment(R.layout.fragment_pokemon_detail_evolution) {
     private lateinit var mainBinding: FragmentPokemonDetailEvolutionBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

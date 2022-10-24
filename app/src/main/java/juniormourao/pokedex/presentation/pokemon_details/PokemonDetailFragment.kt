@@ -28,8 +28,9 @@ class PokemonDetailFragment : Fragment(R.layout.fragment_pokemon_detail) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         pokemonDetailBinding = FragmentPokemonDetailBinding.bind(view)
-        setPokemonDetailsTabs()
         getArgs()
+        setPokemonDetailsTabs()
+        bindPokemonDetails(pokemonDetails)
 
 
         pokemonDetailBinding.btnBackButton.setOnClickListener {
@@ -39,7 +40,10 @@ class PokemonDetailFragment : Fragment(R.layout.fragment_pokemon_detail) {
 
 
     private fun setPokemonDetailsTabs() {
-        pokemonDetailsTabAdapter = PokemonDetailFragmentsAdapter(parentFragmentManager, lifecycle)
+        pokemonDetailsTabAdapter = PokemonDetailFragmentsAdapter(
+            parentFragmentManager,
+            lifecycle,
+            pokemonDetails)
         pokemonDetailBinding.apply {
             vpgrPokemonDetails.adapter = pokemonDetailsTabAdapter
             TabLayoutMediator(tblPokemonDetails, vpgrPokemonDetails) { tab, position ->
@@ -54,7 +58,6 @@ class PokemonDetailFragment : Fragment(R.layout.fragment_pokemon_detail) {
 
     private fun getArgs() {
         pokemonDetails = args.pokemon
-        bindPokemonDetails(pokemonDetails)
     }
 
     private fun bindPokemonDetails(pokemonDetails: Pokemon) {
